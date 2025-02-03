@@ -1,11 +1,28 @@
-// create web server with express
+// create web server
 const express = require('express');
 const app = express();
-// create a route
-app.get('/comments', (req, res) => {
-  res.send('This is a route for comments');
+const port = 3000;
+
+// get method
+app.get('/', (req, res) => {
+    res.send('Hello World');
 });
-// start the server
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
+
+// post method
+app.post('/', (req, res) => {
+    res.send('Got a POST request');
+});
+
+// put method
+app.put('/user', (req, res) => {
+    res.send('Got a PUT request at /user');
+});
+
+// delete method
+app.delete('/user', (req, res) => {
+    res.send('Got a DELETE request at /user');
 });
